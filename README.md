@@ -70,7 +70,7 @@ How to fine-tune a policy network and HR classifier:
        --ckpt_lr_cl Load from the latest checkpoint (lr_classifier)
        --penalty -10, -10, -20, -20
 
-## Visualizing Learned Policies on ImageNet
+## Visualizing Learned Policies on ImageNet and fMoW
 We show some of the learned policies on ImageNet and fMoW in the figures below.
 
 ![results](./figures/results_imgnet.png)
