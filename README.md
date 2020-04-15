@@ -33,7 +33,7 @@ In the second step, the policy network is trained using our reinforcement learni
 
 How to train a policy network (pre-training step):
 
-    python pre-train.py
+    python pretrain.py
        --model R32_C10, R32_C100, R34_fMoW, R50_ImgNet
        --lr 1e-4, 1e-4, 1e-4, 1e-4
        --cv_dir checkpoint directory
@@ -46,7 +46,7 @@ In this step, we fine-tune the Policy Network and High Resolution Classifier joi
 
 How to fine-tune a policy network and HR classifier:
 
-    python fine-tune.py
+    python finetune.py
        --model R32_C10, R32_C100, R34_fMoW, R50_ImgNet
        --lr 1e-4, 1e-4, 1e-4, 1e-4
        --cv_dir checkpoint directory
@@ -61,7 +61,7 @@ This step helps the policy network to drop further patches given the existence o
 
 How to fine-tune a policy network and HR classifier:
 
-    python fine-tune2stream.py
+    python finetune2stream.py
        --model R32_C10, R32_C100, R34_fMoW, R50_ImgNet
        --lr 1e-4, 1e-4, 1e-4, 1e-4
        --cv_dir checkpoint directory
