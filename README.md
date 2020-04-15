@@ -71,9 +71,11 @@ How to fine-tune a policy network and HR classifier:
        --penalty -10, -10, -20, -20
 
 ## Visualizing Learned Policies on ImageNet
-We show some of the learned policies on ImageNet in the figure below.
+We show some of the learned policies on ImageNet and fMoW in the figures below.
 
-![results](./figures/results.png)
+![results](./figures/results_imgnet.png)
+
+![results](./figures/results_fmow.png)
 
 For questions or comments, please send an e-mail to **uzkent.burak@gmail.com** or use the issue tab in github.
 
