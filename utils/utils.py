@@ -48,7 +48,7 @@ def compute_reward(preds, targets, policy, penalty):
 
 def get_transforms(rnet, dset):
 
-    if dset=='C10' or rnet=='C100':
+    if dset=='C10' or dset=='C100':
         mean = [x/255.0 for x in [125.3, 123.0, 113.9]]
         std = [x/255.0 for x in [63.0, 62.1, 66.7]]
         transform_train = transforms.Compose([
