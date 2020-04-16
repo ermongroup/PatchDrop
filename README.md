@@ -8,13 +8,13 @@ This repository contains implementation of our CVPR 2020 paper titled as __Learn
 
 **Packages**: You should install prerequisites using `pip install -r requirements.txt`
 
-**Datasets**
+**Datasets**:
 
-**CIFAR10** and **CIFAR 100**: We use PyTorchAPI to download the CIFAR10 and CIFAR100 datasets.
+  **CIFAR10** and **CIFAR 100**: We use PyTorchAPI to download the CIFAR10 and CIFAR100 datasets.
 
-**ImageNet**: To run it on ImageNet, you need to follow the guidelines [here](https://github.com/soumith/imagenet-multiGPU.torch#data-processing). You should copy the ImageNet images into the './data/ImageNet/train' and './data/ImageNet/test' folders.
+  **ImageNet**: To run it on ImageNet, you need to follow the guidelines [here](https://github.com/soumith/imagenet-multiGPU.torch#data-processing). You should copy the ImageNet images into the './data/ImageNet/train' and './data/ImageNet/test' folders.
 
-**fMoW**: You can find the instructions to download images [here](https://github.com/fMoW/dataset). After downloading the images, you need to crop the images from the large satellite images based on the bounding boxes provided in the '.json' files. The original fMoW paper adaptively determines the context and add it to the bounding box to find the final area of interest. We follow their strategy to preprocess the images. After preprocessing images, you need to create a **csv** file with two columns:**(1) label, (2) location**. Label represents the class ID of the image and Location represents the location of the corresponding image. You need to create another .csv file for the validation and test sets. After creating the csv files, transfer them to the directory __./data/fMoW/train.csv__ and __./data/fMoW/test.csv__.
+  **fMoW**: You can find the instructions to download images [here](https://github.com/fMoW/dataset). After downloading the images, you need to crop the images from the large satellite images based on the bounding boxes provided in the '.json' files. The original fMoW paper adaptively determines the context and add it to the bounding box to find the final area of interest. We follow their strategy to preprocess the images. After preprocessing images, you need to create a **csv** file with two columns:**(1) label, (2) location**. Label represents the class ID of the image and Location represents the location of the corresponding image. You need to create another .csv file for the validation and test sets. After creating the csv files, transfer them to the directory __./data/fMoW/train.csv__ and __./data/fMoW/test.csv__.
 
 ## Training
 **Train the High and Low Resolution Classifiers**
