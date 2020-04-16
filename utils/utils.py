@@ -150,12 +150,6 @@ def get_dataset(model, root='data/'):
 
     return trainset, testset
 
-def set_parameter_requires_grad(model, feature_extracting):
-    # When loading the models, make sure to call this function to update the weights
-    if feature_extracting:
-        for param in model.parameters():
-            param.requires_grad = False
-
 def get_model(model):
 
     from models import resnet
