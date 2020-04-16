@@ -130,7 +130,7 @@ if args.load:
 # Save the configuration to the output directory
 configure(args.cv_dir+'/log', flush_secs=5)
 
-# Get the image size to train the CNN on - low resolution or high resolution
+# Define the optimizer
 if args.model.split('_')[1] == 'C10' or args.model.split('_')[1] == 'C100':
     optimizer = optim.SGD(rnet.parameters(), lr=args.lr, momentum=0.9, weight_decay=args.wd)
     lr_scheduler = optim.lr_scheduler.MultiStepLR(optimizer, [150, 250])

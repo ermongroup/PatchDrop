@@ -197,6 +197,7 @@ if args.ckpt_lr_cl is not None:
     print('loaded the low resolution classifier')
 
 # Load the PN and HR classifier from the Finetune-1 Stage
+start_epoch = 0
 if args.load is not None:
     checkpoint = torch.load(args.load)
     rnet_hr.load_state_dict(checkpoint['resnet_hr'])
@@ -211,7 +212,6 @@ if args.parallel:
 
 optimizer = optim.Adam(list(agent.parameters())+list(rnet_hr.parameters()), lr=args.lr)
 
-start_epoch = 0
 for epoch in range(start_epoch, start_epoch + args.max_epochs+1):
     train(epoch)
     if epoch % args.test_interval == 0:
