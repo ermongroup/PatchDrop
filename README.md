@@ -3,6 +3,7 @@
 
 This repository contains implementation of our CVPR 2020 paper titled as __Learning When and Where to Zoom With Deep Reinforcement Learning__. PatchDrop proposes a reinforcement learning setup to perform conditional image sampling for the image recognition task. The goal is to use less number of image pixels when there is less ambiguity. Our experiments on the benchmarks, including CIFAR10, CIFAR100, ImageNet, and fMoW, we show that we can drop about 50% of the image patches with a minimal loss in classification accuracy. For more details, please check out the arxiv version of the paper [here](https://arxiv.org/pdf/2003.00425.pdf).
 
+**Authors**: Burak Uzkent, Stefano Ermon
 -------------------------------------------------------------------------------------
 ## Requirements
 **Frameworks**: Our implementation uses **Python3.5** and **PyTorch-v1.4.0** framework.
@@ -42,42 +43,45 @@ In the second step, the policy network is trained using our reinforcement learni
 
 To train a policy network (pre-training step):
 
-    python pretrain.py
-       --model R32_C10, R32_C100, R34_fMoW, R50_ImgNet
-       --lr 1e-4, 1e-4, 1e-4, 1e-4
-       --cv_dir checkpoint directory
-       --batch_size 1024 (higher batch size is better to reduce variance)
-       --penalty -0.5, -0.5, -0.5, -0.5
-
+```shell
+  python pretrain.py
+     --model R32_C10, R32_C100, R34_fMoW, R50_ImgNet
+     --lr 1e-4, 1e-4, 1e-4, 1e-4
+     --cv_dir checkpoint directory
+     --batch_size 1024 (higher batch size is better to reduce variance)
+     --penalty -0.5, -0.5, -0.5, -0.5
+```
 **Fine-tune the Policy Network and High Resolution Classifier**
 
 In this step, we fine-tune the Policy Network and High Resolution Classifier jointly. To do so, please use the following command.
 
 To fine-tune a policy network and HR classifier:
-
-    python finetune.py
-       --model R32_C10, R32_C100, R34_fMoW, R50_ImgNet
-       --lr 1e-4, 1e-4, 1e-4, 1e-4
-       --cv_dir checkpoint directory
-       --batch_size 128
-       --Load Load from the latest Policy Network checkpoint in the pre-training step
-       --ckpt_hr_cl Load from the latest High Resolution Classifier checkpoint
-       --penalty -10, -10, -20, -20
-
+```shell
+  python finetune.py
+     --model R32_C10, R32_C100, R34_fMoW, R50_ImgNet
+     --lr 1e-4, 1e-4, 1e-4, 1e-4
+     --cv_dir checkpoint directory
+     --batch_size 128
+     --Load Load from the latest Policy Network checkpoint in the pre-training step
+     --ckpt_hr_cl Load from the latest High Resolution Classifier checkpoint
+     --penalty -10, -10, -20, -20
+```
 **Fine-tune the Policy Network using Two Stream Classifier (Optional)**
 
 This step helps the policy network to drop further patches given the existence of low resolution classifier.
 
 To fine-tune a policy network and HR classifier:
 
-    python finetune2stream.py
-       --model R32_C10, R32_C100, R34_fMoW, R50_ImgNet
-       --lr 1e-4, 1e-4, 1e-4, 1e-4
-       --cv_dir checkpoint directory
-       --batch_size 128
-       --load Load from the latest checkpoint (Policy Network+hr_classifier)
-       --ckpt_lr_cl Load from the latest checkpoint (lr_classifier)
-       --penalty -10, -10, -20, -20
+```shell
+  python finetune2stream.py
+     --model R32_C10, R32_C100, R34_fMoW, R50_ImgNet
+     --lr 1e-4, 1e-4, 1e-4, 1e-4
+     --cv_dir checkpoint directory
+     --batch_size 128
+     --load Load from the latest checkpoint (Policy Network+hr_classifier)
+     --ckpt_lr_cl Load from the latest checkpoint (lr_classifier)
+     --penalty -10, -10, -20, -20
+```
 
 ## Visualizing Learned Policies on ImageNet and fMoW
 We show some of the learned policies below.
