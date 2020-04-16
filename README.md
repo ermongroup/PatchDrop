@@ -7,7 +7,10 @@ This repository contains implementation of our CVPR 2020 paper titled as __Learn
 ## Requirements
 **Frameworks**: Our implementation uses **Python3.5** and **PyTorch-v1.4.0** framework.
 
-**Packages**: You should install prerequisites using `pip install -r requirements.txt`
+**Packages**: You should install prerequisites using:
+```shell
+  pip install -r requirements.txt
+```
 
 **Datasets**:
 
@@ -24,14 +27,15 @@ In the first step, the high and low resolution classifiers need to be trained on
 
 To train a classifier on different benchmarks including **C10**, **C100**, **ImageNet** and **fMoW** dataset:
 
-    python classifier_training.py
-       --model R32_C10, R32_C100, R34_fMoW, R50_ImgNet
-       --lr 1e-1, 1e-1, 1e-3, 1e-3
-       --cv_dir checkpoint directory
-       --batch_size 128
-       --img_size 32, 32, 224, 224 or 8, 8, 56, 56
-       --mode hr or lr
-
+```shell
+  python classifier_training.py
+     --model R32_C10, R32_C100, R34_fMoW, R50_ImgNet
+     --lr 1e-1, 1e-1, 1e-3, 1e-3
+     --cv_dir checkpoint directory
+     --batch_size 128
+     --img_size 32, 32, 224, 224 or 8, 8, 56, 56
+     --mode hr or lr
+```
 **Pre-train the Policy Network**
 
 In the second step, the policy network is trained using our reinforcement learning setup and high resolution classifier's predictions. To do so, please use the following commands.
