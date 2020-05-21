@@ -51,6 +51,7 @@ To train a policy network (pre-training step):
      --model R32_C10, R32_C100, R34_fMoW, R50_ImgNet
      --lr 1e-4, 1e-4, 1e-4, 1e-4
      --cv_dir checkpoint directory
+     --ckpt_hr_cl checkpoint for the HR classifier
      --batch_size 1024 (higher batch size is better to reduce variance)
      --penalty -0.5, -0.5, -0.5, -0.5
 ```
