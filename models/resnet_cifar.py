@@ -86,18 +86,15 @@ class ResNet(nn.Module):
 
     def forward(self, x, dset, res):
         out = F.relu(self.bn1(self.conv1(x)))
+        # out = self.maxpool(out) 
         out = self.layer1(out)
         out = self.layer2(out)
         out = self.layer3(out)
         out = self.layer4(out)
-        if res == 'lr' and (dset == 'C10' or dset == 'C100'):
+        if res == 'lr':
             out = F.avg_pool2d(out, 1)
-        elif res == 'lr' and dset != 'C10' and dset != 'C100':    
-            out = F.avg_pool2d(out, 4)
-        elif res == 'hr' and (dset == 'C10' or dset == 'C100'):
-            out = F.avg_pool2d(out, 4)
-        elif res == 'hr' and dset != 'C10' and dset != 'C100':
-            out = F.avg_pool2d(out, 7)
+        else:
+           out = F.avg_pool2d(out, 4)
         out = out.view(out.size(0), -1)
         out = self.linear(out)
         return out

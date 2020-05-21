@@ -195,10 +195,7 @@ if args.load is not None:
 # Load the High_Res Classifier
 if args.ckpt_hr_cl is not None:
     checkpoint = torch.load(args.ckpt_hr_cl)
-    if args.model.split('_')[1] == 'C10' or args.model.split('_')[1] == 'C100':
-        utils.load_weights_to_flatresnet(checkpoint, rnet)
-    else:
-        rnet.load_state_dict(checkpoint['state_dict'])
+    rnet.load_state_dict(checkpoint['state_dict'])
     print('loaded the high resolution classifier')
 
 if args.parallel:
