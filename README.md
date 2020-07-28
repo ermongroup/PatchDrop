@@ -3,7 +3,7 @@
 
 This repository contains implementation of our CVPR 2020 paper titled as __Learning When and Where to Zoom With Deep Reinforcement Learning__. PatchDrop proposes a reinforcement learning setup to perform conditional image sampling for the image recognition task. The goal is to use less number of image pixels when there is less ambiguity. Our experiments on the benchmarks, including CIFAR10, CIFAR100, ImageNet, and fMoW, we show that we can drop about 50% of the image patches with a minimal loss in classification accuracy. 
 
-**Arxiv**: https://arxiv.org/pdf/2003.00425.pdf
+**Arxiv**: https://openaccess.thecvf.com/content_CVPR_2020/papers/Uzkent_Learning_When_and_Where_to_Zoom_With_Deep_Reinforcement_Learning_CVPR_2020_paper.pdf
 
 **Authors**: Burak Uzkent, Stefano Ermon
 
@@ -102,10 +102,11 @@ For questions or comments, please send an e-mail to **uzkent.burak@gmail.com** o
 
 You can cite our paper as:
 ```
-@article{uzkent2020learning,
-  title={Learning When and Where to Zoom with Deep Reinforcement Learning},
+@inproceedings{uzkent2020learning,
+  title={Learning when and where to zoom with deep reinforcement learning},
   author={Uzkent, Burak and Ermon, Stefano},
-  journal={arXiv preprint arXiv:2003.00425},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={12345--12354},
   year={2020}
 }
 ```
